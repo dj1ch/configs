@@ -1,0 +1,68 @@
+# Close window
+super + shift + {q, x}
+    bspc node -{c,k}
+
+# Resize floating window with arrow keys
+super + shift + {Left,Down,Up,Right}
+    bspc node -z {-20 0,0 20,0 -20,20 0}
+
+# Resize floating window to specific size
+super + control + {Left,Down,Up,Right}
+    bspc node -z {0 -20,20 0,0 20,-20 0}
+
+# Toggle floating mode for current window
+super + shift + space
+    bspc node -t floating
+
+# Move floating window to tiled layout
+super + shift + p
+    bspc node @/ -t tiled
+
+# Move floating window
+super + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Kill window
+super + {q,x}
+    bspc node -{c,k}
+
+# Cycle through windows
+super + {h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# Move windows
+super + shift + {h,j,k,l}
+    bspc node -{f,s} {west,south,north,east} && bspc node -f prev.local
+
+# Change focus
+super + {Tab,grave,Left,Down,Up,Right}
+    bspc {node,desktop} -f {next,prev}.{local,global}
+
+# Send windows to other desktops
+super + {1-9,0}
+    bspc {node -d, desktop -f} '^{1-9,10}'
+
+# Move windows to other desktops
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}' && bspc desktop -f '^{1-9,10}'
+
+# Launch terminal emulator
+super + Return
+    xterm
+
+# Launch web browser
+super + b
+    chromium
+
+# Launch file manager
+super + e
+    pcmanfm
+
+# Launch application launcher
+super + d
+    rofi -show run
+
+# Reload bspwm
+super + shift + r
+    bspc wm -r
+

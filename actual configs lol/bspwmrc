@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+# Start sxhkd (needed to bind keys)
+sxhkd &
+
+# Start top bar
+# echo "$(date +"%a %b %d %I:%M%p")" | lemonbar -p -f "DejaVu Sans Mono-9" -B "#2F343F" -F "#C0C5CE" -g "x24" &
+polybar &
+
+# Xterm Config
+xrdb .Xdefaults &
+
+# Set wallpaper
+nitrogen --restore &
+
+# Set default desktop layout
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+# Set window gap
+bspc config gapless_monocle true
+bspc config window_gap 10
+
+# Fix polybar issue?
+bspc config top_padding 25
+
+# Define key bindings
+bspc config pointer_modifier mod4
+bspc config border_width 1
+bspc config split_ratio 0.52
+
+# Define key bindings
+bspc config -d I II III IV V VI VII VIII IX X
+bspc config -d ^1 qtile --layout tiled
+bspc config -d ^2 qtile --layout monocle
+bspc config -d ^3 qtile --layout bstack
+bspc config -d ^4 qtile --layout grid
+bspc config -d ^5 qtile --layout floating
+bspc config -d ^6 qtile --layout spiral
+bspc config -d ^7 qtile --layout bstask
+bspc config -d ^8 qtile --layout bstackhoriz
+bspc config -d ^9 qtile --layout double
+
+# Bind keys
+bspc config -k mod4-Tab         -n next
+bspc config -k mod4-Shift-Tab   -n prev
+bspc config -k mod4-h           -t west
+bspc config -k mod4-l           -t east
+bspc config -k mod4-j           -t south
+bspc config -k mod4-k           -t north
+bspc config -k mod4-Shift-h     -r -10
+bspc config -k mod4-Shift-l     -r +10
+bspc config -k mod4-Shift-j     -R
+bspc config -k mod4-Shift-k     -c normal
+bspc config -k mod4-Space       -c floating
+bspc config -k mod4-Shift-space -c pseudotile
+bspc config -k mod4-f           -f
+bspc config -k mod4-m           -n biggest
+bspc config -k mod4-n           -n newest
+bspc config -k mod4-p           -n oldest
+bspc config -k mod4-Shift-r     -R
+bspc config -k mod4-Shift-C     -e "quit"
+#bspc config -k mod1-r "rofi -show run"
+#bspc config -k mod1-c "chromium"
+#bspc config -k mod1-t "xterm"
