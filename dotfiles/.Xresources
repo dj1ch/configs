@@ -1,0 +1,5 @@
+xterm*faceName: Hack Nerd Font Mono 
+xterm*faceSize: 8
+xterm*renderFont: true
+xterm*background: Grey11
+xterm*foreground: White
