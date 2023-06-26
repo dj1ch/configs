@@ -15,7 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  networking.hostName = "blooglet"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
    # networking.wireless.userControlled.enable = true; 
   # Configure network proxy if necessary
@@ -47,7 +47,7 @@
   services.xserver.enable = true;
   
   # Enable Picom
-  services.picom.enable = true; 
+  # services.picom.enable = true; 
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -95,7 +95,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dj1ch = {
     isNormalUser = true;
-    description = "Isaac ";
+    description = "name_goes_here";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
