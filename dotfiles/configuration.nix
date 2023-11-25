@@ -17,7 +17,7 @@
 
   networking.hostName = "blooglet"; # Define your hostname.
    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-   # networking.wireless.userControlled.enable = true; 
+   # networking.wireless.userControlled.enable = true;
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -45,22 +45,22 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  
+
   # Enable Picom
-  services.picom.enable = true; 
+  services.picom.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.desktopManager.xterm.enable = false;
 
-  # Enable *insert wm here*    
+  # Enable *insert wm here*
   # services.xserver.windowManager.fluxbox.enable = true;
   # services.xserver.displayManager.defaultSession = "none+fluxbox";
   # services.xserver.displayManager.lightdm.enable = true;
   # services.xserver.displayManager.startx.enable = true;
-  # services.xserver.windowManager.bspwm.enable = true; 
-  # programs.hyprland.enable = true; 
+  # services.xserver.windowManager.bspwm.enable = true;
+  # programs.hyprland.enable = true;
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
   # Configure keymap in X11
@@ -102,25 +102,26 @@
     ];
   };
 
-  # Enable flakes? (only if needed) 
+  # Enable flakes? (only if needed)
   #nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;    
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
-    discord
+    armcord
     pfetch
-    chromium
+    # chromium
     steam
     spotify
     cavalier
     prismlauncher
     intel-media-driver
+    brave
     # coding stuff
     # python311
     pcmanfm
@@ -128,21 +129,21 @@
     # hyprland
     # bspwm and dependancies
     # bspwm
-    # sxhkd 
-    # xorg.xrandr 
-    # xorg.xset    
-    # xorg.xsetroot    
+    # sxhkd
+    # xorg.xrandr
+    # xorg.xset
+    # xorg.xsetroot
     # xorg.xwininfo
     # xorg.xev
     # picom
     # nitrogen
     # polybar
     # rofi
-    usbimager
-    android-tools
-    # Gnome stuff 
+    # usbimager
+    # android-tools
+    # Gnome stuff
     # whitesur-gtk-theme
-    # apple-cursor 
+    # apple-cursor
     # colloid-icon-theme
     # whitesur-icon-theme
     # bibata-cursors
@@ -162,7 +163,7 @@
     nerdfonts
 ];
 
-  #enable steam 
+  #enable steam
   hardware.opengl.driSupport32Bit = true;
 
   environment.gnome.excludePackages = (with pkgs; [
@@ -182,8 +183,8 @@
   iagno # go game
   hitori # sudoku game
   atomix # puzzle game
-]);  
-  
+]);
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
